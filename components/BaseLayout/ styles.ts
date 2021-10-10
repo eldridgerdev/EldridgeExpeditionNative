@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import tw from 'tailwind-react-native-classnames'
 
 export default {
-    container: tw`flex flex-col h-full`, // h-screen`,
+    container: tw`flex flex-col w-full h-full`, // h-screen`,
     contentContainer: tw`pb-7 w-full h-full`, // overflow-y-auto`,
     imageContainer: tw`w-full`,
     image: tw``,

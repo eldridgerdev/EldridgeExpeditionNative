@@ -6,6 +6,7 @@ const GET_BLOG_POST = gql`
             id
             Description
             Title
+            text
             BlogContent {
                 ...on ComponentPostsBlogPostText {
                     __typename

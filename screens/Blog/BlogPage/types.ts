@@ -44,6 +44,7 @@ export interface IBlogPost {
         id: string
         Description: string
         Title: string
+        text?: string
         BlogContent?: [DynamicZone]
         HeroImage?: {
             url: string

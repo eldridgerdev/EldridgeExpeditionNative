@@ -18,8 +18,6 @@ export const LayoutImage: React.FC<IBaseLayoutProps> = (props) => {
 
     return (
         <View>
-          {/* <View style={styles.container}> */}
-              {/* <View style={styles.contentContainer}> */}
                 {image &&                
                     <View style={styles.imageContainer}>
                         <Image
@@ -41,8 +39,6 @@ export const LayoutImage: React.FC<IBaseLayoutProps> = (props) => {
                     </View>
                 }
                 { children }
-            {/* </View> */}
-        {/* </View> */}
         </View>
     )
 }
@@ -50,11 +46,15 @@ export const LayoutImage: React.FC<IBaseLayoutProps> = (props) => {
 const BaseLayout: React.FC<IBaseLayoutProps> = (props) => {
     const { children, ...otherProps } = props
     return (
-        <LayoutImage {...otherProps}>
-            <View style={styles.mainContainer}>
-                { children }
-            </View>
-        </LayoutImage>
+        <View style={styles.container}>
+            <View style={styles.contentContainer}>
+            <LayoutImage {...otherProps}>
+                <View style={styles.mainContainer}>
+                    { children }
+                </View>
+            </LayoutImage>
+        </View>
+    </View>
     )
 }
 

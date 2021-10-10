@@ -93,6 +93,19 @@ const BlogPage = ({ route }: BlogPageProps) => {
         description: blogPost.Title
     })
 
+    // Support the posts w/ old non-dynamic zone style
+    const blogContent = (() => {
+        if (blogPost.BlogContent && blogPost.BlogContent.length > 0) {
+            return blogPost.BlogContent
+        }
+
+        return [{
+            __typename: 'ComponentPostsBlogPostText',
+            id: blogPost.id,
+            Text: blogPost.text || ''
+        }]
+    })()
+
     // Add layout image to the beginning of the content
     //    so that everything is scrollable within the flatlist
     const content = [
@@ -100,7 +113,7 @@ const BlogPage = ({ route }: BlogPageProps) => {
             __typename: 'layoutImage',
             id: 'layoutID'
         },
-        ...(blogPost.BlogContent || [])
+        ...(blogContent || [])
     ]
 
     return (
